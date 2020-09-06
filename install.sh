@@ -38,8 +38,6 @@ install_for_linux()
 
 	echo '>> Downloading vim configurations...'
 	curl -sSL https://raw.githubusercontent.com/edenreich/vim-on-speeds/master/.vimrc -o $HOME/.vimrc
-
-	/bin/sh -c "vim +'PlugInstall --sync' +qa"
 }
 
 install_for_macos()
