@@ -1,15 +1,14 @@
 set nocompatible              
 filetype off 
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
 
-call vundle#end()
+call plug#end()
 
 syntax on
 filetype plugin indent on
