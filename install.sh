@@ -11,11 +11,6 @@ install_for_linux()
 		apt-get install -y git
 	fi
 
-	if [ ! `which curl` ]; then
-		echo '>> curl is not installed. Installing curl...'
-		apt-get install -y curl
-	fi
-
 	if [ ! `which npm` ] || [ ! `which node` ]; then
 		echo '>> nodejs is not installed. installing nodejs...'
 		if [ ! `which lsb_release` ]; then
