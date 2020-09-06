@@ -18,5 +18,6 @@ set wildmenu
 set laststatus=2
 set modifiable
 set number
+set ts=3 sw=4
 
 map <C-n> :NERDTreeToggle<CR>
