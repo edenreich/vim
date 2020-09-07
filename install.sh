@@ -12,7 +12,7 @@ install_for_linux()
 	fi
 
 	if [ ! `which npm` ] || [ ! `which node` ]; then
-		echo '>> nodejs is not installed. installing nodejs...'
+		echo '>> nodejs is not installed. Installing nodejs...'
 		if [ ! `which lsb_release` ]; then
 			apt-get install -y lsb-release
 		fi
@@ -42,10 +42,31 @@ install_for_linux()
 
 install_for_macos()
 {
-	if [ ! vim ]; then
-		echo '>> vim is not installed. Installing vim..'
+	echo '>> Updating...'
+ 	brew update	
+
+	if [ ! `which git` ]; then
+		echo '>> git is not installed. Installing git...'
+		brew install git
+	fi
+
+	if [ ! `which npm` ] || [ ! `which node` ]; then
+		echo '>> nodejs is not installed. Installing nodejs...'
+		brew install node
+	fi
+
+	if [ ! `which vim` ]; then
+		echo '>> vim is not installed. Installing vim...'
 		brew install vim
 	fi
+
+	if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
+		echo '>> Plug is not installed. Installing Plug...'
+		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	fi
+
+	echo '>> Downloading vim configurations...'
+	curl -sSL https://raw.githubusercontent.com/edenreich/vim-on-speeds/master/.vimrc -o $HOME/.vimrc
 }
 
 
